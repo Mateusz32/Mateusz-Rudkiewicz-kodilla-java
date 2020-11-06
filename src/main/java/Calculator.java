@@ -15,6 +15,12 @@ public class Calculator {
         return a - b;
     }
 
+    public int multiplication(int a, int b) {
+        this.a = a;
+        this.b = b;
+        return a * b;
+    }
+
     public int getA() {
         return a;
     }
@@ -30,6 +36,7 @@ public class Calculator {
         System.out.println("Addition of: " + calculator.getA() + " + " + calculator.getB() + " = " + sum);
         int substaction = calculator.substraction(37, 26);
         System.out.println("Substraction of: " + calculator.getA() + " - " + calculator.getB() + " = " + substaction);
-
+        int multiplication = calculator.multiplication(10, 21);
+        System.out.println("Multiplication of:" + calculator.getA() + " * " + calculator.getB() + " = " + multiplication);
     }
 }
