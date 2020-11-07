@@ -2,43 +2,18 @@ package com.kodilla;
 
 public class Calculator {
 
-    int a;
-    int b;
-
-    public int addition(int a, int b) {
-        this.a = a;
-        this.b = b;
-        return a + b;
-    }
-
-    public int substraction(int a, int b) {
-        this.a = a;
-        this.b = b;
-        return a - b;
-    }
-
-    public int multiplication(int a, int b) {
-        this.a = a;
-        this.b = b;
-        return a * b;
-    }
-
-    public int getA() {
-        return a;
-    }
-
-    public int getB() {
-        return b;
-    }
-
     public static void main(String[] args) {
 
-        Calculator calculator = new Calculator();
-        int sum = calculator.addition(10, 6);
-        System.out.println("Addition of: " + calculator.getA() + " + " + calculator.getB() + " = " + sum);
-        int substaction = calculator.substraction(37, 26);
-        System.out.println("Substraction of: " + calculator.getA() + " - " + calculator.getB() + " = " + substaction);
-        int multiplication = calculator.multiplication(10, 21);
-        System.out.println("Multiplication of:" + calculator.getA() + " * " + calculator.getB() + " = " + multiplication);
+        MathematicalOperations calculator = new MathematicalOperations(60, 10);
+        calculator.addition();
+        calculator.substraction();
+        calculator.multiplication();
+
+        System.out.println("Addition of " + calculator.getA() + " & " + calculator.getB() + " is " + calculator.addition());
+        System.out.println("Substraction of " + calculator.getA() + " & " + calculator.getB() + " is " + calculator.substraction());
+        System.out.println("Multipliaction of " + calculator.getA() + " & " + calculator.getB() + " is " + calculator.multiplication());
+
     }
+
 }
+
