@@ -24,4 +24,14 @@ public class Calculator {
     public int getB() {
         return b;
     }
+
+    public static void main(String[] args) {
+
+        int x=3;
+        int s=2;
+        System.out.println(x/s);
+
+
+    }
+
 }
