@@ -57,4 +57,5 @@ class BookTestSuite {
                 .count();
         assertEquals(3, numberOfBooksPublicatedAfter2007);
     }
+
 }
