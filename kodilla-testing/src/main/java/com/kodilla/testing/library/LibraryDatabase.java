@@ -1,6 +1,7 @@
 package com.kodilla.testing.library;
 
 import java.util.List;
+import java.util.Map;
 
 public interface LibraryDatabase {
 
@@ -8,7 +9,7 @@ public interface LibraryDatabase {
     List<Book> listBooksWithCondition(String titleFragment);
 
     // list books borrowed by libraryUser
-    List<Book> listBooksInHandsOf(LibraryUser libraryUser);
+    Map<Book, LibraryUser>  listBooksInHandsOf(LibraryUser libraryUser);
 
     // try to rent a book for libraryUser
     // returns true when success
@@ -19,6 +20,4 @@ public interface LibraryDatabase {
     // returns number of books returned back
     int returnBooks(LibraryUser libraryUser);
 
-
-     int dupa(double d);
 }
