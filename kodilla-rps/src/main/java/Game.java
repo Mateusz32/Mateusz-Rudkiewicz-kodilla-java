@@ -27,6 +27,7 @@ public class Game {
             System.out.println("Do ilu wygranych chcesz grać? : ");
             int round = sc.nextInt();
 
+
             boolean start = true;
 
             while (start) {
@@ -68,7 +69,6 @@ public class Game {
                     System.out.println(gameUser.getName() + " wygrałeś");
                     System.out.println(gameUser.getName() + " " + wygrana + ":" + przegrana + "Komputer");
                 }
-
 
                 if (wygrana == round || przegrana == round) {
                     if (wygrana > przegrana) {

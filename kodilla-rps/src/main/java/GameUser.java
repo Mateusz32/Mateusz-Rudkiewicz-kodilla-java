@@ -4,6 +4,7 @@ public class GameUser {
 
     String name;
 
+
     GameUser(String name) {
         this.name = name;
     }
