@@ -5,6 +5,8 @@ import java.util.List;
 
 public class Moves {
 
+    // Class contain list of moves
+
     private List<String> moves;
 
     public Moves() {

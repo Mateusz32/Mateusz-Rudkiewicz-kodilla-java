@@ -2,12 +2,14 @@ package PaperRockScissor;
 
 public class ControlOfGame {
 
-    public void controlOfGame(){
-        System.out.println("Sterowanie grą:\n" +
-                "klawisz 1 – zagranie \"kamień\",\n" +
-                "klawisz 2 – zagranie \"papier\",\n" +
-                "klawisz 3 – zagranie \"nożyce\",\n" +
-                "klawisz x – zakończenie gry" +
-                "klawisz n – uruchomienie gry od nowa");
+    // Class contain description of game control
+
+    public void controlOfGame() {
+        System.out.println("Game controls:\n" +
+                "pushbutton 1 – play \"stone\",\n" +
+                "pushbutton 2 – play \"paper\",\n" +
+                "pushbutton 3 – play \"scissors\",\n" +
+                "pushbutton x – game end" +
+                "pushbutton n – restarting the game");
     }
 }

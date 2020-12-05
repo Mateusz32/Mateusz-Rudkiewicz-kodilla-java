@@ -4,70 +4,79 @@ import java.util.Scanner;
 
 public class GetMove {
 
-    String playerMove;
+    // Class contain moves of player
+
+    private String playerMove;
+    private boolean start1;
+    private boolean start2;
+    private boolean start3;
     Scanner puntMove = new Scanner(System.in);
     Moves move = new Moves();
     Scanner decision = new Scanner(System.in);
-    boolean start;
-    boolean end;
 
-    GetMove(){}
-
-    GetMove(boolean start, boolean end) {
-        this.start = start;
-        this.end = end;
+    public GetMove() {
     }
 
-    String playerMove() {
-        boolean start = true;
+    public GetMove(boolean start1, boolean start2, boolean start3) {
+        this.start1 = start1;
+        this.start2 = start2;
+        this.start3 = start3;
+    }
 
+   public String playerMove() {
+        boolean start = true;
         while (start) {
-            System.out.println("Proszę wykonać ruch 1-,2-,3-,x,n");
+            System.out.println("Make a move: 1-,2-,3-,x,n");
             playerMove = puntMove.next();
             if (move.isCorrectMove(playerMove)) {
                 start = false;
             } else {
-                System.out.print("Podałeś złą wartość!!! ");
+                System.out.print("Inncorect value!!! ");
                 start = true;
             }
         }
         return playerMove;
     }
 
-    public String getWybórGracza() {
-        return playerMove;
-    }
-
-    GetMove doFinishOrBegin(GetMove getMove, String playerMove) {
-
+   public GetMove doFinishOrBegin(GetMove getMove, String playerMove) {
         if (playerMove.equals("x")) {
-            System.out.println("Czy napewno zakończyć grę? Yes=y, No=any button");
+            System.out.println("Do You want to leave the game? Yes=y, No=any button");
             String decysion = decision.next().toLowerCase();
             if (decysion.equals("y")) {
-                start = false;
-                end = true;
+                start1 = false;
+                start2 = false;
+                start3 = false;
             } else {
-                end = false;
+                start2 = true;
+                start3 = false;
             }
         } else if (playerMove.equals("n")) {
-            System.out.println("Czy napewno chcesz zacząć grę od nowa? Yes=y, No=any button");
+            System.out.println("Do You want restart the game? Yes=y, No=any button");
             String decysion = decision.next().toLowerCase();
             if (decysion.equals("y")) {
-                start = true;
-                end = true;
+                start1 = true;
+                start2 = false;
+                start3 = false;
+
             } else {
-                end = false;
+                start2 = true;
+                start3 = false;
             }
         }
         return getMove;
     }
 
-    public boolean isStart() {
-        return start;
+    public boolean isStart2() {
+        return start2;
     }
 
-    public boolean isEnd() {
-        return end;
+    public boolean isStart3() {
+        return start3;
     }
+
+    public boolean isStart1() {
+        return start1;
+    }
+
 }
 

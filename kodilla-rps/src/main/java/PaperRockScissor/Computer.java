@@ -4,9 +4,11 @@ import java.util.Random;
 
 public class Computer {
 
+    // Class contain computer moves
+
     Random generated = new Random();
 
-    int moveOFComputer() {
+    public int moveOFComputer() {
         int moveComputer = generated.nextInt(3) + 1;
         return moveComputer;
     }

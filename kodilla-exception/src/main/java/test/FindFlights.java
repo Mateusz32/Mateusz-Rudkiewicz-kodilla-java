@@ -15,26 +15,14 @@ public class FindFlights {
         listOfFlights.put("Rome", true);
         listOfFlights.put("Tokyo", false);
 
-        int i = 0;
-        for (Map.Entry<String, Boolean> entry : listOfFlights.entrySet()) {
-            String TargetNameOfAirport = flight.getArrivalAirport();
-            String ListNameOfAirport = entry.getKey();
-
-            while (TargetNameOfAirport == ListNameOfAirport) {
-                if (entry.getValue()) {
-                    System.out.println("The airport " + TargetNameOfAirport + " is on.");
-                    ListNameOfAirport = null;
-                    i--;
-                } else {
-                    System.out.println("The airport " + TargetNameOfAirport + " is off.");
-                    ListNameOfAirport = null;
-                    i--;
-                }
+        if (listOfFlights.containsKey(flight.getArrivalAirport())) {
+            if (listOfFlights.containsValue(true)) {
+                System.out.println("The airport " + flight.getArrivalAirport() + " is on.");
+            } else {
+                System.out.println("The airport " + flight.getArrivalAirport() + " is on.");
             }
-            i++;
-            if (i == listOfFlights.size()) {
-                throw new RouteNotFoundException("RouteNotFoundException");
-            }
+        } else {
+            throw new RouteNotFoundException("RouteNotFoundException");
         }
     }
 
@@ -54,7 +42,6 @@ public class FindFlights {
         } catch (RouteNotFoundException e) {
             System.out.println("Lack airport " + flight1.getArrivalAirport() + " in the list");
         }
-
         try {
             findFlights.findFilght(flight8);
         } catch (RouteNotFoundException e) {
