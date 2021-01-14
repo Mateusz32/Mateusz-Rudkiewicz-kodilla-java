@@ -1,17 +1,17 @@
 package Food2Door;
 
-public class OrderDto {
+public class OrderedDto {
 
-    OrderRequestRetriever orderRequestRetriever;
+    OrderRequestFromClient orderRequestFromClient;
     boolean isOrdered;
 
-    public OrderDto(OrderRequestRetriever orderRequestRetriever, boolean isOrdered) {
-        this.orderRequestRetriever = orderRequestRetriever;
+    public OrderedDto(OrderRequestFromClient orderRequestFromClient, boolean isOrdered) {
+        this.orderRequestFromClient = orderRequestFromClient;
         this.isOrdered = isOrdered;
     }
 
-    public OrderRequestRetriever getOrderRequestRetriever() {
-        return orderRequestRetriever;
+    public OrderRequestFromClient getOrderRequestFromDelivery() {
+        return orderRequestFromClient;
     }
 
     public boolean isOrdered() {

@@ -1,11 +1,11 @@
 package Food2Door;
 
-public class OrderRequestFromDelivery {
+public class OrderRequestFromClient {
 
     private Client client;
     private Product product;
 
-    public OrderRequestFromDelivery(Client client, Product product) {
+    public OrderRequestFromClient(Client client, Product product) {
         this.client = client;
         this.product = product;
     }
@@ -13,7 +13,6 @@ public class OrderRequestFromDelivery {
     public Client getClient() {
         return client;
     }
-
 
     public Product getProduct() {
         return product;

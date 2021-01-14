@@ -1,7 +1,6 @@
 package Flights;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class ListOfFlights {
@@ -9,7 +8,6 @@ public class ListOfFlights {
     public List<Flights> getFlightList() {
         List<Flights> flightsList = new ArrayList<>();
         flightsList.add(new Flights("Warsaw", "Berlin"));
-        flightsList.add(new Flights("Paris", "Berlin"));
         flightsList.add(new Flights("Paris", "Berlin"));
         flightsList.add(new Flights("London", "Berlin"));
         flightsList.add(new Flights("Warsaw", "London"));

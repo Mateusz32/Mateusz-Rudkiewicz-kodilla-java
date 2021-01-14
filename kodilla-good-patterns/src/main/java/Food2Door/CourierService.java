@@ -1,2 +1,5 @@
-package Food2Door;public interface DeliveryService {
+package Food2Door;
+
+public interface CourierService {
+    void sendOrder(OrderRequestFromClient orderRequest);
 }

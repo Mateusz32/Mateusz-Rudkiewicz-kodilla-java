@@ -6,8 +6,8 @@ import java.util.List;
 public class FlightsAnalysis {
 
     private ListOfFlights listOfCties = new ListOfFlights();
-    private ListOfFlights listOfDeparturesCties = new ListOfFlights();
-    private ListOfFlights listOfArrivalCties = new ListOfFlights();
+//    private ListOfFlights listOfDeparturesCties = new ListOfFlights();
+//    private ListOfFlights listOfArrivalCties = new ListOfFlights();
 
     public void findDeparturesCities(String departuresCities) {
         System.out.println("All flight from " + departuresCities + ": ");
@@ -26,11 +26,11 @@ public class FlightsAnalysis {
     public void findIndirecltyFly(String departuresCities, String arrivalCities) {
         System.out.println("List of indirectly flights from: " + departuresCities + " to " + arrivalCities);
         List<Flights> theListIndirectlFlights = new ArrayList<>();
-        listOfDeparturesCties.getFlightList().stream()
+        listOfCties.getFlightList().stream()
                 .filter(flights -> flights.getArivallAiroport().equals(arrivalCities))
                 .forEach(s -> theListIndirectlFlights.add(s));
 
-        listOfArrivalCties.getFlightList().stream()
+        listOfCties.getFlightList().stream()
                 .filter(flights -> flights.getDepartureAirport().equals(departuresCities))
                 .forEach(s -> theListIndirectlFlights.add(s));
 
