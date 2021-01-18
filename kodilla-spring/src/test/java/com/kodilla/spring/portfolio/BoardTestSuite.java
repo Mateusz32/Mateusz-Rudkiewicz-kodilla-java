@@ -8,6 +8,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 @SpringBootTest
 public class BoardTestSuite {
+
     @Test
     public void testTaskAdd() {
         //Given
