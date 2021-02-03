@@ -1,5 +1,5 @@
 package Food2Door;
 
 public interface CourierService {
-    void sendOrder(OrderRequestFromClient orderRequest);
+    void sendOrder(OrderRequestFromClient orderRequestFromClient);
 }

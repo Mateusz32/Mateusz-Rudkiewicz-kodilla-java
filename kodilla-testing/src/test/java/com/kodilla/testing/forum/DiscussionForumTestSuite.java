@@ -7,7 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
-class ForumTestSuite {
+class DiscussionForumTestSuite {
     @BeforeEach
     public void before() {
         System.out.println("Test Case: begin");
