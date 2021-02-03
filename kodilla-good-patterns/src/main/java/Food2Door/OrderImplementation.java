@@ -1,24 +1,23 @@
 package Food2Door;
 
 public class OrderImplementation {
+    private Service service;
+    private Informationervice informationervice;
 
-    private InformationService informationService;
-    private CourierService courierService;
-    private DeliveryService deliveryService;
-
-    public OrderImplementation(InformationService informationService, CourierService courierService, DeliveryService deliveryService) {
-        this.informationService = informationService;
-        this.courierService = courierService;
-        this.deliveryService = deliveryService;
+    public OrderImplementation(Service service, Informationervice informationervice) {
+        this.service = service;
+        this.informationervice = informationervice;
     }
 
-    public OrderedDto process(OrderRequestFromClient orderRequestFromClient) {
-        boolean isOrdered = deliveryService.process(orderRequestFromClient);
+    public OrderDto executed(Order order) {
+        boolean isOrdered = service.process(order);
         if (isOrdered) {
-            informationService.sendInformation(orderRequestFromClient);
-            courierService.sendOrder(orderRequestFromClient);
-            return new OrderedDto(orderRequestFromClient, true);
-        } else return new OrderedDto(orderRequestFromClient, false);
+            System.out.println("Zlecenie gotowe do realizacji");
+            informationervice.sendInformation(order);
+            return new OrderDto(order, true);
+        } else
+            System.out.println("Zlecenie niemożliwe do realizacji");
+        return new OrderDto(order, false);
     }
 
 

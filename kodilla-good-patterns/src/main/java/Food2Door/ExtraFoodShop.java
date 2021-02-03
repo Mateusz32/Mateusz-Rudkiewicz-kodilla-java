@@ -1,4 +1,4 @@
-package zadanie;
+package Food2Door;
 
 import java.util.HashMap;
 
@@ -17,11 +17,11 @@ public class ExtraFoodShop implements Service {
     public boolean process(Order order) {
         if (getStorageOfExtraFoodShoop().containsKey(order.getProduct().getName())
                 && order.getQuantity() <= getStorageOfExtraFoodShoop().get(order.getProduct().getName())) {
-            System.out.println(order.getQuantity()+ " kg "+order.getProduct().getName()+" znajduje się w magazynie ExtraFoodShop. Zamówienie możliwe do wykonania.");
+            System.out.println(order.getQuantity() + " kg " + order.getProduct().getName() + " znajduje się w magazynie ExtraFoodShop. Zamówienie możliwe do wykonania.");
 
             return true;
         } else
-            System.out.println(order.getQuantity()+ " kg "+order.getProduct().getName()+" Brak towaru w magazynie ExtraFoodShop.");
+            System.out.println(order.getQuantity() + " kg " + order.getProduct().getName() + " Brak towaru w magazynie ExtraFoodShop.");
         return false;
     }
 }

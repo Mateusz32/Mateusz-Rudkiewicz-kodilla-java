@@ -1,4 +1,4 @@
-package zadanie;
+package Food2Door;
 
 public class App {
 

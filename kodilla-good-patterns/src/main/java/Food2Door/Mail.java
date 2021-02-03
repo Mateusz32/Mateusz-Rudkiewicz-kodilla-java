@@ -1,9 +1,9 @@
 package Food2Door;
 
-public class Mail implements InformationService{
+public class Mail implements Informationervice {
     @Override
-    public void sendInformation(OrderRequestFromClient orderRequest) {
-        System.out.println("Send information about order to: "+orderRequest.getClient().getName()+
-                " "+orderRequest.getClient().getSurname()+" to adress: "+orderRequest.getClient().getAdressMail());
+    public void sendInformation(Order order) {
+        System.out.println("Wyślij informacje na pocztę elektorniczna do: "
+                + order.getClient().getName() + " " + order.getClient().getSurname());
     }
 }

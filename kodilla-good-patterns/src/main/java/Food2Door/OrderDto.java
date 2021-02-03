@@ -1,9 +1,9 @@
-package zadanie;
+package Food2Door;
 
 public class OrderDto {
 
-    private  Order order;
-    boolean isOrdered;
+    private Order order;
+    private boolean isOrdered;
 
     public OrderDto(Order order, boolean isOrdered) {
         this.order = order;

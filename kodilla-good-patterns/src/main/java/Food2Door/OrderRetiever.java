@@ -1,4 +1,4 @@
-package zadanie;
+package Food2Door;
 
 public class OrderRetiever {
 
@@ -22,5 +22,4 @@ public class OrderRetiever {
         int quantity = 15;
         return new Order(client, product, quantity);
     }
-
 }
