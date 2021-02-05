@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class TaskList {
+public class TasksList {
 
     private final String name;
-    private final List<Tasks> tasks = new ArrayList<>();
+    private final List<Task> tasks = new ArrayList<>();
 
-    public TaskList(final String name) {
+    public TasksList(final String name) {
         this.name = name;
     }
 
-    public List<Tasks> getTasks() {
+    public List<Task> getTasks() {
         return tasks;
     }
 
@@ -24,8 +24,8 @@ public class TaskList {
     @Override
     public String toString() {
         String s = "   List [" + name + "]";
-        for (Tasks tasks : this.tasks) {
-            s = s + "\n" + tasks.toString();
+        for (Task task : this.tasks) {
+            s = s + "\n" + task.toString();
         }
         return s;
     }
@@ -34,9 +34,9 @@ public class TaskList {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TaskList taskList = (TaskList) o;
-        return Objects.equals(name, taskList.name) &&
-                Objects.equals(tasks, taskList.tasks);
+        TasksList tasksList = (TasksList) o;
+        return Objects.equals(name, tasksList.name) &&
+                Objects.equals(tasks, tasksList.tasks);
     }
 
     @Override

@@ -2,11 +2,11 @@ package com.kodilla.patterns.prototype;
 
 import java.util.Objects;
 
-public final class Tasks {
+public final class Task {
 
     private final String name;
 
-    public Tasks(final String name) {
+    public Task(final String name) {
         this.name = name;
     }
 
@@ -23,8 +23,8 @@ public final class Tasks {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Tasks tasks = (Tasks) o;
-        return Objects.equals(name, tasks.name);
+        Task task = (Task) o;
+        return Objects.equals(name, task.name);
     }
 
     @Override
