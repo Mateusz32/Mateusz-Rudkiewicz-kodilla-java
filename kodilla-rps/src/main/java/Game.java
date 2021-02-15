@@ -27,7 +27,6 @@ public class Game {
             System.out.println("Do ilu wygranych chcesz grać? : ");
             int round = sc.nextInt();
 
-
             boolean start = true;
 
             while (start) {
