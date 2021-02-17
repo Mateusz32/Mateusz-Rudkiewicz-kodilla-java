@@ -1,10 +1,12 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Board {
 
     public List<Coordinate> board = new ArrayList<>();
     protected static Board boardInstance;
+    Scanner scanner = new Scanner(System.in);
 
     public List<Coordinate> getBoard() {
         return board;
@@ -85,18 +87,18 @@ public class Board {
 //                }
 
                 for (Coordinate boards : board) {
-                    System.out.println("Cyfry"+rowDigits.size());
+                    System.out.println("Cyfry" + rowDigits.size());
                     int row = boards.getRow();
-                    System.out.println("Row: "+row);
+                    System.out.println("Row: " + row);
                     int col = boards.getCol();
-                    System.out.println("Col: "+col);
+                    System.out.println("Col: " + col);
                     int value = boards.getValue();
-                    System.out.println("Value: "+value);
+                    System.out.println("Value: " + value);
                     int newValue = rowDigits.get(0);
-                    System.out.println("Pierwszy z listy "+rowDigits.get(0));
+                    System.out.println("Pierwszy z listy " + rowDigits.get(0));
                     rowDigits.remove(0);
-                    System.out.println("Rozmiar "+rowDigits.size());
-                    if(rowDigits.size()==0) {
+                    System.out.println("Rozmiar " + rowDigits.size());
+                    if (rowDigits.size() == 0) {
 
                         rowDigits.add(1);
                         rowDigits.add(2);
@@ -112,20 +114,14 @@ public class Board {
                         boards.setValue(newValue);
                         System.out.println(board.get(0));
 
-                        }
-
                     }
-
-
-
-
-
-
 
                 }
 
+
             }
 
+        }
 
 
 //        for (int i = 1; i < 10; i++) {
@@ -163,6 +159,43 @@ public class Board {
 
 
         return board;
+    }
+
+
+    public List<List> getRealBoard() {
+        List<List> board = new ArrayList<>();
+        for (int i = 0; i < 9; i++) {
+            List<Integer> rowOfBoard = new ArrayList<>();
+            for (int j = 0; j < 9; j++) {
+                rowOfBoard.add(j, 0);
+            }
+            board.add(i, rowOfBoard);
+        }
+        return board;
+    }
+
+
+    public void showRealBoard(List<List> realBoard) {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (j == 8) {
+                    System.out.print("|" + realBoard.get(i).get(j) + "|");
+                } else {
+                    System.out.print("|" + realBoard.get(i).get(j));
+                }
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    public void setRealUserValueToTheBoard(NewUserValues newUserValues, List<List> board) {
+        int row = newUserValues.getRow() - 1;
+        int col = newUserValues.getCol() - 1;
+        int value = newUserValues.getValue();
+        board.get(row).set(col, value);
+
+
     }
 }
 
