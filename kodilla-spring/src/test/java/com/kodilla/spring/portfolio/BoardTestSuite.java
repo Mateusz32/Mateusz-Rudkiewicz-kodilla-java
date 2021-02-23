@@ -1,6 +1,5 @@
 package com.kodilla.spring.portfolio;
-
-import org.junit.Assert;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
@@ -24,8 +23,8 @@ public class BoardTestSuite {
         board.getDoneList().getTask().add(taskDone);
 
         //Then
-        Assert.assertEquals(taskToDo, board.getToDoList().getTask().get(0));
-        Assert.assertEquals(taskInProgress, board.getInProgressList().getTask().get(0));
-        Assert.assertEquals(taskDone, board.getDoneList().getTask().get(0));
+        assertEquals(taskToDo, board.getToDoList().getTask().get(0));
+        assertEquals(taskInProgress, board.getInProgressList().getTask().get(0));
+        assertEquals(taskDone, board.getDoneList().getTask().get(0));
     }
 }
