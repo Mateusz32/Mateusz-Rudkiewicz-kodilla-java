@@ -2,9 +2,13 @@ package com.kodilla.hibernate.manytomany.dao;
 
 import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
+import org.junit.Assert;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,18 +17,19 @@ class CompanyDaoTestSuite {
 
     @Autowired
     private CompanyDao companyDao;
+    @Autowired
+    private EmployeeDao employeeDao;
 
-    @Test
-    void testSaveManyToMany() {
-        //Given
-        Employee johnSmith = new Employee("John", "Smith");
-        Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
-        Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
+    Employee johnSmith = new Employee("John", "Smith");
+    Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
+    Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
 
-        Company softwareMachine = new Company("Software Machine");
-        Company dataMaesters = new Company("Data Maesters");
-        Company greyMatter = new Company("Grey Matter");
+    Company softwareMachine = new Company("Software Machine");
+    Company dataMaesters = new Company("Data Maesters");
+    Company greyMatter = new Company("Grey Matter");
 
+    @BeforeEach
+    void setEmployeeAndCompany() {
         softwareMachine.getEmployees().add(johnSmith);
         dataMaesters.getEmployees().add(stephanieClarckson);
         dataMaesters.getEmployees().add(lindaKovalsky);
@@ -36,6 +41,12 @@ class CompanyDaoTestSuite {
         stephanieClarckson.getCompanies().add(dataMaesters);
         lindaKovalsky.getCompanies().add(dataMaesters);
         lindaKovalsky.getCompanies().add(greyMatter);
+    }
+
+
+    @Test
+    void testSaveManyToMany() {
+        //Given
 
         //When
         companyDao.save(softwareMachine);
@@ -59,4 +70,43 @@ class CompanyDaoTestSuite {
             //do nothing
         }
     }
+
+    @Test
+    void testFindEmployeeByLastName() {
+        //CleanUpBeforeTest
+        companyDao.deleteAll();
+        employeeDao.deleteAll();
+
+        //Given
+        companyDao.save(softwareMachine);
+        companyDao.save(dataMaesters);
+        companyDao.save(greyMatter);
+
+        //When
+        List<Employee> employeeSurname = employeeDao.retrieveLastNameOfEmployee("Smith");
+
+        System.out.println(employeeSurname.size());
+        //Then
+        Assert.assertEquals(1, employeeSurname.size());
+    }
+
+    @Test
+    void findNameCompanyWithSubstring() {
+        //CleanUpBeforeTest
+        companyDao.deleteAll();
+        employeeDao.deleteAll();
+
+        //Given
+        companyDao.save(softwareMachine);
+        companyDao.save(dataMaesters);
+        companyDao.save(greyMatter);
+
+        //When
+        List<Company> listCompany = companyDao.retrievePartialNameOfCompany("Dat");
+
+        System.out.println(listCompany.size());
+        //Then
+        Assert.assertEquals(1, listCompany.size());
+    }
 }
+
