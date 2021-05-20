@@ -118,7 +118,7 @@ public class ShopService {
                 .filter(o -> o.getOrderId().equals(orderId))
                 .iterator();
         while (orderIterator.hasNext()) {
-            Order theOrder = orderIterator.hasNext();
+            Order theOrder = orderIterator.next();
             orders.remove(theOrder);
         }
     }

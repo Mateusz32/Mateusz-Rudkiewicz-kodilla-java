@@ -10,6 +10,12 @@ import java.util.List;
         query = "FROM Employee WHERE lastname =:LASTNAME"
 )
 
+@NamedQuery(
+        name = "Employee.findEmployeeByPartialName",
+        query = "FROM Employee WHERE lastname like concat('%',:LASTNAME,'%') "
+
+)
+
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {

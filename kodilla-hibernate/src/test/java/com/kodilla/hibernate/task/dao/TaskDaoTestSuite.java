@@ -13,6 +13,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -121,7 +122,7 @@ class TaskDaoTestSuite {
             assertEquals(3, enoughTimeTasks.size());
         } finally {
             //CleanUp
-           // taskListDao.deleteById(id);
+             taskListDao.deleteById(id);
         }
     }
 }

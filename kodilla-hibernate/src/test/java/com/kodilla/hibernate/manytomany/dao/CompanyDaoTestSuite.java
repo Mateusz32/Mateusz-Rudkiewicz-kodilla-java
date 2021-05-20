@@ -104,7 +104,6 @@ class CompanyDaoTestSuite {
         //When
         List<Company> listCompany = companyDao.retrievePartialNameOfCompany("Dat");
 
-        System.out.println(listCompany.size());
         //Then
         Assert.assertEquals(1, listCompany.size());
     }
