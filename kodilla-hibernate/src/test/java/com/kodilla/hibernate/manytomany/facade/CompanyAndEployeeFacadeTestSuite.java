@@ -4,13 +4,12 @@ import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
 import com.kodilla.hibernate.manytomany.dao.CompanyDao;
 import com.kodilla.hibernate.manytomany.dao.EmployeeDao;
-import org.junit.Assert;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 public class CompanyAndEployeeFacadeTestSuite {
@@ -72,9 +71,8 @@ public class CompanyAndEployeeFacadeTestSuite {
         employeeDao.save(johnSmith);
         employeeDao.save(stephanieClarckson);
         employeeDao.save(stephanKovalsky);
-        System.out.println("ilosc "+employeeDao.count());
         int quantityOfEmployeesByPartialName = companyAndEmployeeFacade
-                .getListEmployeeWithPartialName("cl")
+                .getListEmployeeWithPartialName("Cl")
                 .size();
         //THEN
         assertEquals(1, quantityOfEmployeesByPartialName);
