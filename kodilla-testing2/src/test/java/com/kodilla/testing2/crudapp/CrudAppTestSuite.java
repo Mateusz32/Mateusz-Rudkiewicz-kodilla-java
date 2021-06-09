@@ -28,7 +28,7 @@ class CruddAppTestSuite {
     @AfterEach
     public void cleanUpAfterTest() {
         driver.close();
-        driver.quit();
+
     }
 
     private String createCrudAppTestTask() throws InterruptedException {
@@ -103,7 +103,6 @@ class CruddAppTestSuite {
                 .size() > 0;
 
         driverTrello.close();
-        driverTrello.quit();
 
         return result;
     }
