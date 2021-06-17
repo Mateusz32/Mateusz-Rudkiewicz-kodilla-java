@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+
 import java.util.stream.Collectors;
 import java.util.Random;
 
@@ -46,15 +47,35 @@ class CruddAppTestSuite {
 
         WebElement addButton = driver.findElement(By.xpath(XPATH_ADD_BUTTON));
         addButton.click();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
 
         return taskName;
     }
 
+    private void deleteCrudAppTestTask(String taskName) throws InterruptedException {
+        driver.navigate().refresh();
+
+        while (!driver.findElement(By.xpath("//select[1]")).isDisplayed()) ;
+
+        driver.findElements(
+                By.xpath("//div[contains(@class,\"datatable__row\")]")).stream()
+                .filter(anyForm ->
+                        anyForm.findElement(By.xpath("//div[contains(@class,\"datatable__row\")]"))
+                                .getText().equals(taskName))
+                .forEach(theForm -> {
+                    WebElement buttonDelete = theForm.findElement(By.xpath(".//button[@data-task-delete-button]"));
+                    buttonDelete.click();
+
+                });
+        Thread.sleep(4000);
+
+    }
+
+
     private void sendTestTaskToTrello(String taskName) throws InterruptedException {
         driver.navigate().refresh();
 
-        while(!driver.findElement(By.xpath("//select[1]")).isDisplayed());
+        while (!driver.findElement(By.xpath("//select[1]")).isDisplayed()) ;
 
         driver.findElements(
                 By.xpath("//form[@class=\"datatable__row\"]")).stream()
@@ -70,7 +91,7 @@ class CruddAppTestSuite {
                             theForm.findElement(By.xpath(".//button[contains(@class, \"card-creation\")]"));
                     buttonCreateCard.click();
                 });
-        Thread.sleep(5000);
+        Thread.sleep(4000);
     }
 
     private boolean checkTaskExistsInTrello(String taskName) throws InterruptedException {
@@ -112,5 +133,7 @@ class CruddAppTestSuite {
         String taskName = createCrudAppTestTask();
         sendTestTaskToTrello(taskName);
         assertTrue(checkTaskExistsInTrello(taskName));
+
     }
 }
+
